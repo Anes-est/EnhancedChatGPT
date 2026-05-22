@@ -113,16 +113,17 @@ function handleElementAdded (e) {
     if (button) button.style = ''
   }
 
+  // Le bouton copié à été rajouté par OpenAI donc inutile mtn
   // Add "Copy Button" to Assistant's chat bubble.
-  if (e.querySelector('.lg\\:self-center.lg\\:pl-2')) {
-    // Get buttons group
-    const buttonGroup = e.querySelector('.lg\\:self-center.lg\\:pl-2')
-    // Filter out Assistant's chat bubble from User's chat bubble
-    if (buttonGroup.children.length !== 2) return
-    // It heavily depends on the fact Assistant's has two buttons, "upvote" and "downvote".
-    // and the user has only one button, "edit prompt".
-    addCopyButton(buttonGroup)
-  }
+  // if (e.querySelector('.lg\\:self-center.lg\\:pl-2')) {
+  //   // Get buttons group
+  //   const buttonGroup = e.querySelector('.lg\\:self-center.lg\\:pl-2')
+  //   // Filter out Assistant's chat bubble from User's chat bubble
+  //   if (buttonGroup.children.length !== 2) return
+  //   // It heavily depends on the fact Assistant's has two buttons, "upvote" and "downvote".
+  //   // and the user has only one button, "edit prompt".
+  //   addCopyButton(buttonGroup)
+  // }
 
 }
 
@@ -140,31 +141,31 @@ function setupSidebar () {
     }
   })
 }
+// Inutile prcq on peux mtn exporter depuis paramètres + bouton marche pas
+// // This function adds an "Export Button" to the sidebar
+// function addExportButton () {
+//     // Get the nav element in the sidebar
+//   const nav = document.querySelector('nav')
+//   // If there is no nav element or the "Export Button" already exists, skip
+//   if (!nav || nav.querySelector('#export-button')) return 
 
-// This function adds an "Export Button" to the sidebar
-function addExportButton () {
-    // Get the nav element in the sidebar
-  const nav = document.querySelector('nav')
-  // If there is no nav element or the "Export Button" already exists, skip
-  if (!nav || nav.querySelector('#export-button')) return 
+//   // Create the "Export Button" element
+//   const button = document.createElement('a')
+//   button.id = 'export-button'
+//   button.className = css`ExportButton`
+//   button.innerHTML = `${svg`Archive`} Export Chat`
+//   button.onclick = exportCurrentChat
 
-  // Create the "Export Button" element
-  const button = document.createElement('a')
-  button.id = 'export-button'
-  button.className = css`ExportButton`
-  button.innerHTML = `${svg`Archive`} Export Chat`
-  button.onclick = exportCurrentChat
-
-  // If there is no chat started, disable the button 
-  if (document.querySelector('.flex-1.overflow-hidden h1')) {
-    button.style = 'pointer-events: none;opacity: 0.5'
-  }
+//   // If there is no chat started, disable the button 
+//   if (document.querySelector('.flex-1.overflow-hidden h1')) {
+//     button.style = 'pointer-events: none;opacity: 0.5'
+//   }
   
-  // Get the "Dark Mode" and "Light Mode" button as a reference point
-  const colorModeButton = [...nav.children].find(child => child.innerText.toLowerCase().includes('mode'))
-  // Insert the "Export Button" before the "Color Mode" button
-  nav.insertBefore(button, colorModeButton)
-}
+//   // Get the "Dark Mode" and "Light Mode" button as a reference point
+//   const colorModeButton = [...nav.children].find(child => child.innerText.toLowerCase().includes('mode'))
+//   // Insert the "Export Button" before the "Color Mode" button
+//   nav.insertBefore(button, colorModeButton)
+// }
 
 // This function gets the "New Chat" buttons
 function getNewChatButtons (callback) {

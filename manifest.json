@@ -32,6 +32,6 @@
     }],
     "content_scripts": [{
         "js": ["content_script.js"],
-        "matches": ["https://chat.openai.com/chat/*"]
+        "matches": ["https://chat.openai.com/*", "https://chatgpt.com/*"]
     }]
 }
